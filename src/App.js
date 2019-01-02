@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header id='header-box'/>
+        <Header/>
         <div className='body-style'>
           {routes}
         </div>  

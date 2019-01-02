@@ -15,6 +15,7 @@ export default class Dashboard extends Component {
 
     this.deletePunch = this.deletePunch.bind(this)
     this.getPunches = this.getPunches.bind(this)
+    this.editPunch = this.editPunch.bind(this)
   }
   componentDidMount(){
     console.log('hi')

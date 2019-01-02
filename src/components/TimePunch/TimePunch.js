@@ -69,28 +69,30 @@ export default class TimePunch extends Component {
 
 
   render() {
+    const {id, date, day, hour, minute, dayNight, punchType, deletePunchFn, editPunchFn} = this.props
+    const {edit, dateInput, dayInput, hourInput, minuteInput, dayNightInput, punchTypeInput} = this.state
     return(
       <div className='punch-box'>
         <div className='punch-spacing'>
-          {this.state.edit ? <input className='large-input-style' placeholder='In Or Out' onChange={(e) => this.handleInOrOutInput(e.target.value)} /> : this.props.punchType}
+          { edit ? <input className='large-input-style' placeholder='In Or Out' onChange={(e) => this.handleInOrOutInput(e.target.value)} /> : punchType}
         </div>
         <div>DATE:</div>
         <div className='punch-spacing'>
-          {this.state.edit ? <input className='large-input-style' placeholder='Date' onChange={(e) => this.handleDateInput(e.target.value)} /> : this.props.date}
+          { edit ? <input className='large-input-style' placeholder='Date' onChange={(e) => this.handleDateInput(e.target.value)} /> : date}
         </div>
         <div>DAY:</div>
         <div className='punch-spacing'>
-          {this.state.edit ? <input className='large-input-style' placeholder='Day' onChange={(e) => this.handleDayInput(e.target.value)} /> : this.props.day}
+          { edit ? <input className='large-input-style' placeholder='Day' onChange={(e) => this.handleDayInput(e.target.value)} /> : day}
         </div>
         <div>TIME:</div>
         <div>
-          {this.state.edit ? <input placeholder='Hour' className='small-input-style' onChange={(e) => this.handleHourInput(e.target.value)} /> : `${this.props.hour}:`}
-          {this.state.edit ? <input placeholder='Minute' className='small-input-style' onChange={(e) => this.handleMinuteInput(e.target.value)} /> : this.props.minute}
-          {this.state.edit ? <input placeholder='am/pm' className='small-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} /> : this.props.dayNight}
+          { edit ? <input placeholder='Hour' className='small-input-style' onChange={(e) => this.handleHourInput(e.target.value)} /> : `${ hour }:`}
+          { edit ? <input placeholder='Minute' className='small-input-style' onChange={(e) => this.handleMinuteInput(e.target.value)} /> :  minute}
+          { edit ? <input placeholder='am/pm' className='small-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} /> :  dayNight}
         </div>
         <div className='time-punch-spacing'></div>
-      {this.state.edit ? <button onClick={() => {this.handleInputToggle(); this.props.editPunchFn(this.props.id, this.state.punchTypeInput, this.state.dateInput, this.state.dayInput, this.state.hourInput, this.state.minuteInput, this.state.dayNightInput)}} className='edit-button'>Save</button> : <button onClick={() => this.handleInputToggle()} className='edit-button'>Edit</button>}
-        <button className='delete-button' onClick={() => this.props.deletePunchFn(this.props.id)}>Delete</button>
+      { edit ? <button onClick={() => {this.handleInputToggle();  editPunchFn( id, punchTypeInput, dateInput, dayInput, hourInput, minuteInput, dayNightInput)}} className='edit-button'>Save</button> : <button onClick={() => this.handleInputToggle()} className='edit-button'>Edit</button>}
+        <button className='delete-button' onClick={() =>  deletePunchFn(id)}>Delete</button>
       </div>
     )
   }

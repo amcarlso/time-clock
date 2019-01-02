@@ -61,9 +61,7 @@ export default class Wizard extends Component {
     const {date, day, hour, minute, daynight, type} = this.state
     axios.post('/api/punch', {date, day, hour, minute, daynight, type})
     .then(res => {
-      this.setState({
-        punches: res.data
-      })
+      this.props.history.push('/')
     })
   }
  
@@ -93,7 +91,7 @@ export default class Wizard extends Component {
             <input onChange={(e) => this.handleInOrOutInput(e.target.value)} />
           </div>
           <div id='buttons-spacing'>
-            <Link to='/' component={routes}><button className='create-punch-button' onClick={() => this.handleAddPunch()}>CREATE PUNCH</button></Link>
+            <button className='create-punch-button' onClick={() => this.handleAddPunch()}>CREATE PUNCH</button>
             <Link to='/' component={routes}><button className='cancel-button'>CANCEL</button></Link>          
           </div>
         </div>
