@@ -1,12 +1,17 @@
 const express = require('express');
 const massive = require('massive');
 require('dotenv').config();
+const controller = require('./controller');
 
 const {CONNECTION_STRING, SERVER_PORT} = process.env
 
 const app = express();
 
 app.use(express.json());
+
+app.get('/api/punches', controller.getAll)
+app.post('/api/punch', controller.addPunch)
+app.delete('/api/punches/:id', controller.deletePunch)
 
 
 massive(CONNECTION_STRING).then(connection => {
