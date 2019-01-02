@@ -27,8 +27,20 @@ module.exports = {
     db.delete_punch({id})
     .then(response => res.status(200).send(response))
     .catch( err => {
-      res.status(500).send({errorMessage: "couldn't delete house"})
+      res.status(500).send({errorMessage: "couldn't delete punch"})
       console.log(err)
     } )
+  },
+  editPunch: (req, res, next) => {
+    const db = req.app.get('db')
+    let {date, day, hour, minute, daynight, type} = req.body
+    let {id} = req.params
+
+    db.edit_punch({id, date, day, hour, minute, daynight, type})
+    .then(response => res.status(200).send(response))
+    .catch(err => {
+      res.status(500).send({errorMessage: "couldn't edit punch"})
+      console.log(err)
+    })
   }
 }

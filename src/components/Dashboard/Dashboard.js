@@ -17,6 +17,7 @@ export default class Dashboard extends Component {
     this.getPunches = this.getPunches.bind(this)
   }
   componentDidMount(){
+    console.log('hi')
     this.getPunches()
   }
 
@@ -32,6 +33,14 @@ export default class Dashboard extends Component {
       this.getPunches()
     })
   }
+  editPunch(id, type, date, day, hour, minute, daynight){
+    axios.put(`/api/punches/${id}`, {type, date, day, hour, minute, daynight}).then(res => {
+      this.getPunches()  //<----------this is not working
+    })
+  }
+  // componentWillUnmount() {
+  //   this.getPunches()
+  // }
 
   render(){
     let mapPunchesList = this.state.punches.map(punch => {
@@ -46,6 +55,7 @@ export default class Dashboard extends Component {
           dayNight = {punch.am_pm}
           punchType = {punch.punch_type}
           deletePunchFn = {this.deletePunch}
+          editPunchFn = {this.editPunch}
         />
       )
     })
@@ -58,6 +68,5 @@ export default class Dashboard extends Component {
       </div>
     )
   }
-
 }
 

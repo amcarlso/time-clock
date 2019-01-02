@@ -15,10 +15,27 @@
 
 }
 
-.input-style{
+.punch-spacing{
   font-weight: bolder;
   font-family: 'Oswald', sans-serif;
+  width: 70px;
+}
 
+.time-punch-spacing{
+  font-weight: bolder;
+  font-family: 'Oswald', sans-serif;
+  width: 10px;
+}
+
+.large-input-style{
+  font-weight: bolder;
+  font-family: 'Oswald', sans-serif;
+  width: 110px;
+}
+.small-input-style{
+  font-weight: bolder;
+  font-family: 'Oswald', sans-serif;
+  width: 65px;
 }
 
 .edit-button{

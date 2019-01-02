@@ -84,9 +84,9 @@ export default class Wizard extends Component {
           </div>
           <div className='category-style'>
             <p>TIME:</p>
-            HR: <input className='small-input-style' onChange={(e) => this.handleHourInput(e.target.value)} />
-            MIN: <input className='small-input-style' onChange={(e) => this.handleMinuteInput(e.target.value)} />
-            <input className='small-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} />
+            Hr: <input className='small-input-style' onChange={(e) => this.handleHourInput(e.target.value)} />
+            Min: <input className='small-input-style' onChange={(e) => this.handleMinuteInput(e.target.value)} />
+            <span id='am-pm-font-sizing'>AM/PM: </span><input className='small-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} />
           </div>
           <div className='category-style'>
             <p>PUNCH TYPE:</p>
