@@ -74,7 +74,7 @@ export default class TimePunch extends Component {
     return(
       <div className='punch-box'>
         <div className='punch-spacing'>
-          { edit ? <input className='large-input-style' placeholder='In Or Out' onChange={(e) => this.handleInOrOutInput(e.target.value)} /> : punchType}
+          { edit ? <input className='large-input-style' placeholder='In Or Out' onChange={(e) => this.handleInOrOutInput(e.target.value)} /> : <p id='punch-type'>{punchType}</p>}
         </div>
         <div>DATE:</div>
         <div className='punch-spacing'>
@@ -85,14 +85,14 @@ export default class TimePunch extends Component {
           { edit ? <input className='large-input-style' placeholder='Day' onChange={(e) => this.handleDayInput(e.target.value)} /> : day}
         </div>
         <div>TIME:</div>
-        <div>
+        <div className='clock-style'>
           { edit ? <input placeholder='Hour' className='small-input-style' onChange={(e) => this.handleHourInput(e.target.value)} /> : `${ hour }:`}
           { edit ? <input placeholder='Minute' className='small-input-style' onChange={(e) => this.handleMinuteInput(e.target.value)} /> :  minute}
           { edit ? <input placeholder='am/pm' className='small-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} /> :  dayNight}
         </div>
         <div className='time-punch-spacing'></div>
-      { edit ? <button onClick={() => {this.handleInputToggle();  editPunchFn( id, punchTypeInput, dateInput, dayInput, hourInput, minuteInput, dayNightInput)}} className='edit-button'>Save</button> : <button onClick={() => this.handleInputToggle()} className='edit-button'>Edit</button>}
-        <button className='delete-button' onClick={() =>  deletePunchFn(id)}>Delete</button>
+      { edit ? <button onClick={() => {this.handleInputToggle();  editPunchFn( id, punchTypeInput, dateInput, dayInput, hourInput, minuteInput, dayNightInput)}} className='edit-button'>SAVE</button> : <button onClick={() => this.handleInputToggle()} className='edit-button'>EDIT</button>}
+        <button className='delete-button' onClick={() =>  deletePunchFn(id)}>DELETE</button>
       </div>
     )
   }

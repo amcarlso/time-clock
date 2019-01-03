@@ -1,7 +1,7 @@
 #my-punches{
   font-size: 2em;
   font-family: 'Oswald', sans-serif;
-  padding: 15px;
+  padding: 22px;
 }
 
 .new-punch-button{
@@ -10,9 +10,10 @@
   color: white;
   padding: 5px;
   height: 100%;
-  width: 145px;
+  width: 155px;
   border: none;
   font-family: 'Cinzel', serif;
   font-size: 1.2em;
-  font-weight: normal;
+  font-weight: lighter;
+  margin-top: 20px
 }

@@ -65,7 +65,6 @@ export default class Dashboard extends Component {
         <h3 id='my-punches'>My Punches</h3>
         <div>{mapPunchesList}</div>
         <Link to='/wizard' component={routes}><button className='new-punch-button'>NEW PUNCH</button></Link>
-        
       </div>
     )
   }

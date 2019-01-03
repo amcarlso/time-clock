@@ -78,25 +78,39 @@ export default class Wizard extends Component {
           </div>
           <div className='category-style'>
             <p>DAY:</p>
-            <input onChange={(e) => this.handleDayInput(e.target.value)} /> {/* I need to figure out how to do dropdown */}
+            <select onChange={(e) => this.handleDayInput(e.target.value)} >
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
+            </select>
           </div>
           <div className='category-style'>
             <p>TIME:</p>
             Hr: <input className='small-input-style' onChange={(e) => this.handleHourInput(e.target.value)} />
             Min: <input className='small-input-style' onChange={(e) => this.handleMinuteInput(e.target.value)} />
-            <span id='am-pm-font-sizing'>AM/PM: </span><input className='small-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} />
+            <span id='am-pm-font-sizing'>AM/PM: </span>
+            <select className='day-type-input-style' onChange={(e) => this.handleAmPmInput(e.target.value)} >
+              <option value='AM'>AM</option>
+              <option value='PM'>PM</option>
+            </select>
           </div>
           <div className='category-style'>
             <p>PUNCH TYPE:</p>
-            <input onChange={(e) => this.handleInOrOutInput(e.target.value)} />
+            <select className='day-type-input-style' onChange={(e) => this.handleInOrOutInput(e.target.value)} >
+              <option value='IN'>IN</option>
+              <option value='OUT'>OUT</option>
+            </select>
           </div>
           <div id='buttons-spacing'>
             <button className='create-punch-button' onClick={() => this.handleAddPunch()}>CREATE PUNCH</button>
             <Link to='/' component={routes}><button className='cancel-button'>CANCEL</button></Link>          
           </div>
         </div>
-      </div>
-        
+      </div>  
     )
   }
 }
